@@ -23,16 +23,21 @@ class HomeController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index()
-    {
-        $api = Http::get('https://pokeapi.co/api/v2/pokemon/1');
-        $pokemon = $api->json();
-        
-        foreach ($pokemon['types'] as $poke) {
-           ($poke['slot'] == 1) ? $pokemonName=$poke['type']['name'] : $pokemonName1=$poke['type']['name'];
-        }
-        
-        
-      
-        return view('home' , compact('pokemon', 'pokemonName','pokemonName1'));
+    {   
+        return view('home' );
     }
+    public function search(Request $request)
+    {   
+        $request->validate([
+            'name' => 'required',    
+        ]);
+        $linkpokemon='https://pokeapi.co/api/v2/pokemon/';        
+        $pokemonSearch=$request->name;
+        $search=$linkpokemon.$pokemonSearch;
+        $pokemon = Http::get($search);
+        $pokemonfined = $pokemon->json();
+        
+        return view('home' ,compact('pokemonfined'));
+    }
+    
 }

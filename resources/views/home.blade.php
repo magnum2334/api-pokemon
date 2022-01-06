@@ -3,25 +3,28 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
-          <div class="card">
-                <div class="card-body">
-                    <div class="card-title d-flex w-100 align-items-center justify-content-around">
-                        <h1 class="text-center"> name : {{ $pokemon['name'] }}</h1>
+        <div class="col-md-6">
+            @include('search', ['method' => 'POST', 'url' => route('search')])    
+        </div>
+            <div class="col-4">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="card-title d-flex w-100 align-items-center justify-content-around">
+                            <h1 class="text-center" style="font-family: cursive;">{{ isset($pokemonfined ['name']) ? 'pokemon :':'' }} {{ isset($pokemonfined ['name']) ? $pokemonfined ['name'] :'' }}</h1>
+                        </div>
+                        @isset($pokemonfined ['abilities'] )
+                            <h2 class=" text-center" style="font-family: cursive;">abilities :</h2>
+                            @foreach ($pokemonfined ['abilities']  as  $poke )
+                                <h3 class="text-center" style="font-family: cursive;"> {{ $poke['ability']['name'] }}</h3>
+                            @endforeach
+                        @endisset
+                        <h2 class="text-center" style="font-family: cursive;"> {{  isset($pokemonfined ['id'] ) ? 'pokedex :' :''}} {{  isset($pokemonfined ['id'] ) ? $pokemonfined ['id'] :''}}</h2>
+                        <div class="card-footer">
+                            <img class="card-img-top"  style="font-family: cursive;" src=" {{isset( $pokemonfined ['sprites']['front_default']) ? $pokemonfined ['sprites']['front_default'] :''}}" alt="">
+                        </div>
                     </div>
-                    <h2 class="text-center"><strong>types</strong></h2>
-                    <strong class="text-center"><p>{{ $pokemonName }} and {{ $pokemonName1 }}</p></strong>
-                    <h2 class="text-center">abilities</h2> 
-                    @foreach ($pokemon['abilities']  as  $poke )
-                        <div class="text-center">   {{ $poke['ability']['name'] }}</div>
-                    @endforeach
-                    <h2 class="text-center"><strong>base experience </strong></h2>
-                    <h2 class="text-center">{{ $pokemon['base_experience'] }}</h2>
-                    <div class="card-footer">
-                        <img class="card-img-top" src=" {{ $pokemon['sprites']['front_shiny']}}" alt="">
-                    </div>
-                </div>
-          </div>
+                  </div>
+            </div>
         </div>
     </div>
 </div>
