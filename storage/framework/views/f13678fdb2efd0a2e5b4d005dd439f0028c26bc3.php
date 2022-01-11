@@ -1,0 +1,1 @@
+<?php /**PATH /home/kevin/pokemon/resources/views/show.blade.php ENDPATH**/ ?>

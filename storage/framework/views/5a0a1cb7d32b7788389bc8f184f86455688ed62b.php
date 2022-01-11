@@ -8,7 +8,6 @@
                 <div class="card-body">
                     <form method="POST" action="<?php echo e(route('login')); ?>">
                         <?php echo csrf_field(); ?>
-
                         <div class="row mb-3">
                             <label for="email" class="col-md-4 col-form-label text-md-end"><?php echo e(__('E-Mail Address')); ?></label>
 
