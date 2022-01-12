@@ -29,7 +29,6 @@
                         <tbody>
                             <?php $__currentLoopData = $pokemon; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $poke): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <tr>
-
                                     <td><?php echo e($poke->pokemon->name); ?></td>
                                     <td><?php echo e($poke->slot); ?></td>
                                     <td><a href="<?php echo e(route('show_pokemon', $poke->pokemon->name )); ?>">ver</a></td>

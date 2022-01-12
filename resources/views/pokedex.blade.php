@@ -14,9 +14,9 @@
                     <h3 class="text-center mb-1">{{  isset($pokedex ['id']) ? 'types': ''  }}<br>  
                         @isset($pokedex['types']  )
                             @php
-                                 foreach ($pokedex['types']  as $poke) {
-                                     ($poke['slot'] == 1) ? $poketype = $poke['type'] ['name']: $poketype2 = $poke['type'] ['name'];
-                                 }  
+                                foreach ($pokedex['types']  as $poke) {
+                                    ($poke['slot'] == 1) ? $poketype = $poke['type'] ['name']: $poketype2 = $poke['type'] ['name'];
+                                }  
                              @endphp 
                         @endisset
                         <h4 class="text-center font"> {{isset($poketype) ? $poketype : ''}}  {{ isset($poketype2) ?  '|' :'' }}  {{ isset($poketype2) ?  $poketype2 :'' }}</h4>

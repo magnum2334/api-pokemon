@@ -229,7 +229,7 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-        'Consult' => app\Http\Controllers\helpers\Consult::class,
+        'Consult' => App\Http\Controllers\helpers\Consult::class,
     ],
 
 ];
